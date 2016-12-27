@@ -10,19 +10,10 @@ import Foundation
 
 struct BookViewModel {
     
-    func books() -> Array<Book> {
-        var books = Array<Book>()
-        
-        for index in 1...5 {
-            let book = Book()
-            book.name = "book-\(index)"
-            book.author = "author-\(index)"
-            book.status = "可借"
-            
-            books.append(book)
-        }
-        
-        return books
-    }
+    let bookDataCenter = BookDataCenter()
     
+    func books() -> Array<Book> {
+        return bookDataCenter.fetchBooksFromBD()
+    }
+        
 }

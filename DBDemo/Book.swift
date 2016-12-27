@@ -8,8 +8,8 @@
 
 import UIKit
 
-class Book {
-    var name: String = ""
-    var author: String = ""
-    var status: String = ""
+struct Book {
+    let name: String?
+    let author: String?
+    let status: String?
 }
