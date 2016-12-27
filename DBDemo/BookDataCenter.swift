@@ -17,7 +17,7 @@ struct BookDataCenter {
     func fetchBooksFromBD() -> Array<Book> {
         let realm = try! Realm()
         
-        print("--------------")
+        print("------realm path: --------")
         print(realm.configuration.fileURL!.path)
                 
         return Array(realm.objects(RealmBook.self)).map {
@@ -28,9 +28,29 @@ struct BookDataCenter {
     func fetchBookById(_ id: Int) -> Book? {
         let realm = try! Realm()
         
-        let realmBook = realm.objects(RealmBook.self).filter("id = %@", id).first
-        guard let book = realmBook else { return nil }
-        
+        guard let bookInDB = realm.objects(RealmBook.self).filter("id = %@", id).first else {
+            return nil
+        }
+        return bookModelFromRealmBook(bookInDB)
+    }
+    
+    func changeBookStatus(_ id: Int, successHandler:@escaping (_ book: Book) -> Void) {
+        DispatchQueue.global().async {
+            let realm = try! Realm()
+            if let bookInDB = realm.objects(RealmBook.self).filter("id = %@", id).first {
+                try! realm.write {
+                    bookInDB.status = !bookInDB.status
+                }
+                
+                let book = self.bookModelFromRealmBook(bookInDB)
+                DispatchQueue.main.async {
+                    successHandler(book)
+                }
+            }
+        }
+    }
+    
+    private func bookModelFromRealmBook(_ book: RealmBook) -> Book {
         return Book(id: book.id, name: book.name, author: book.author, status: book.status)
     }
     

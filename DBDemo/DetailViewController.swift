@@ -33,8 +33,11 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func changeStatus(_ sender: Any) {
-        print("------------")
-        
+        bookViewModel.changeBookStatus(bookID) { [weak self] book in
+            if let strongSelf = self {
+                strongSelf.statusLabel.text = book.displayedStatus
+            }
+        }
     }
 
 }

@@ -25,5 +25,9 @@ struct BookViewModel {
         
         return (name: book.name, author: book.author, status: book.displayedStatus)
     }
-        
+    
+    func changeBookStatus(_ id: Int, successHandler:@escaping (_ book: Book) -> Void) {
+        bookDataCenter.changeBookStatus(id, successHandler: successHandler)
+    }
+    
 }
