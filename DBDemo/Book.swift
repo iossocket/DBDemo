@@ -8,8 +8,20 @@
 
 import UIKit
 
+enum BookStatus: String {
+    case available = "Available"
+    case nonAvailable = "Not Available"
+}
+
 struct Book {
-    let name: String?
-    let author: String?
-    let status: String?
+    let id: Int
+    let name: String
+    let author: String
+    let status: Bool
+}
+
+extension Book {
+    var displayedStatus: String {
+        return status ? "Available" : "Not Available"
+    }
 }

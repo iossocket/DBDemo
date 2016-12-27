@@ -21,13 +21,22 @@ struct BookDataCenter {
         print(realm.configuration.fileURL!.path)
                 
         return Array(realm.objects(RealmBook.self)).map {
-            Book(name: $0.name, author: $0.author, status: $0.status)
+            Book(id: $0.id, name: $0.name, author: $0.author, status: $0.status)
         }
+    }
+    
+    func fetchBookById(_ id: Int) -> Book? {
+        let realm = try! Realm()
+        
+        let realmBook = realm.objects(RealmBook.self).filter("id = %@", id).first
+        guard let book = realmBook else { return nil }
+        
+        return Book(id: book.id, name: book.name, author: book.author, status: book.status)
     }
     
     func saveBooksToDB() {
         for index in 1...5 {
-            let realmBook = RealmBook(value: ["name": "book-\(index)", "author": "author-\(index)", "status": "可借"])
+            let realmBook = RealmBook(value: ["id": index, "name": "book-\(index)", "author": "author-\(index)", "status": false])
             saveBook(realmBook)
         }
     }

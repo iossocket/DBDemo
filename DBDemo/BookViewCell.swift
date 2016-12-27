@@ -16,7 +16,7 @@ class BookViewCell: UITableViewCell {
     func configCell(_ book: Book) {
         nameLabel.text = book.name
         authorLabel.text = book.author
-        statusLabel.text = book.status
+        statusLabel.text = book.displayedStatus
     }
 
 }

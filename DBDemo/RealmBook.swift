@@ -10,7 +10,8 @@ import Foundation
 import RealmSwift
 
 class RealmBook: Object {
+    dynamic var id = 0
     dynamic var name = ""
     dynamic var author = ""
-    dynamic var status = ""
+    dynamic var status = false
 }

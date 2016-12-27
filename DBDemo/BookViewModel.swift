@@ -15,5 +15,15 @@ struct BookViewModel {
     func books() -> Array<Book> {
         return bookDataCenter.fetchBooksFromBD()
     }
+    
+    func fetchBookById(_ id: Int) -> (name: String, author: String, status: String) {
+        let fetchedBook = bookDataCenter.fetchBookById(id)
+        
+        guard let book = fetchedBook else {
+            return (name: "", author: "", status: "")
+        }
+        
+        return (name: book.name, author: book.author, status: book.displayedStatus)
+    }
         
 }

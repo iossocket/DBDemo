@@ -34,7 +34,8 @@ class ListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let book = books[indexPath.row]
         let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        detailVC.book = book
+        detailVC.bookID = book.id
+        detailVC.bookViewModel = bookViewModel
         
         navigationController?.pushViewController(detailVC, animated: true)
     }
