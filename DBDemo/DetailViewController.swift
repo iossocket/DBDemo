@@ -14,8 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
-    var bookID: Int!
-    var bookViewModel: BookViewModel!
+    var bookDetailViewModel: BookDetailViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +25,14 @@ class DetailViewController: UIViewController {
     func setupUI() {
         title = "Book Detail"
         
-        let book = bookViewModel.fetchBookById(bookID)
+        let book = bookDetailViewModel.fetchBookFromDB()
         nameLabel.text = book.name
         authorLabel.text = book.author
         statusLabel.text = book.status
     }
     
     @IBAction func changeStatus(_ sender: Any) {
-        bookViewModel.changeBookStatus(bookID) { [weak self] book in
+        bookDetailViewModel.changeBookStatus() { [weak self] book in
             if let strongSelf = self {
                 strongSelf.statusLabel.text = book.displayedStatus
             }

@@ -10,32 +10,30 @@ import UIKit
 
 class ListViewController: UITableViewController {
 
-    var books = Array<Book>()
-    var bookViewModel: BookViewModel = BookViewModel()
+    var bookViewModel: BookListViewModel = BookListViewModel(bookDataCenter: BookDataCenter())
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        books = bookViewModel.books()
         title = "My Books"
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return books.count
+        return bookViewModel.bookCount()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookViewCell", for: indexPath) as! BookViewCell
-        let book = books[indexPath.row]
+        let book = bookViewModel.bookAtIndex(indexPath.row)
         cell.configCell(book)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let book = books[indexPath.row]
+        let book = bookViewModel.bookAtIndex(indexPath.row)
+        let bookDetailViewModel = BookDetailViewModel(bookDataCenter: BookDataCenter(), bookID: book.id)
         let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        detailVC.bookID = book.id
-        detailVC.bookViewModel = bookViewModel
+        detailVC.bookDetailViewModel = bookDetailViewModel
         
         navigationController?.pushViewController(detailVC, animated: true)
     }

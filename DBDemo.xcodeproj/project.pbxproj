@@ -10,11 +10,12 @@
 		929348F142CD73AFD7A60834 /* Pods_DBDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CD859CAF85F9D2DB717D7B /* Pods_DBDemo.framework */; };
 		947E6B921E1207C900B3EE9F /* BookViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E6B911E1207C900B3EE9F /* BookViewCell.swift */; };
 		947E6B941E12088400B3EE9F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E6B931E12088400B3EE9F /* Book.swift */; };
-		949DD89B1E121321004E1522 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD89A1E121321004E1522 /* BookViewModel.swift */; };
+		949DD89B1E121321004E1522 /* BookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD89A1E121321004E1522 /* BookListViewModel.swift */; };
 		949DD89F1E121588004E1522 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD89E1E121588004E1522 /* DetailViewController.swift */; };
 		949DD8A21E1218A9004E1522 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949DD8A01E1218A9004E1522 /* Main.storyboard */; };
 		949DD8A41E1248BE004E1522 /* RealmBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8A31E1248BE004E1522 /* RealmBook.swift */; };
 		949DD8A61E124B0B004E1522 /* BookDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8A51E124B0B004E1522 /* BookDataCenter.swift */; };
+		949DD8A91E13515C004E1522 /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8A81E13515C004E1522 /* BookDetailViewModel.swift */; };
 		D0E791951E07C046002F1EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E791941E07C046002F1EC6 /* AppDelegate.swift */; };
 		D0E791971E07C046002F1EC6 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E791961E07C046002F1EC6 /* ListViewController.swift */; };
 		D0E7919C1E07C046002F1EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0E7919B1E07C046002F1EC6 /* Assets.xcassets */; };
@@ -45,11 +46,12 @@
 		89CD859CAF85F9D2DB717D7B /* Pods_DBDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DBDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		947E6B911E1207C900B3EE9F /* BookViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewCell.swift; sourceTree = "<group>"; };
 		947E6B931E12088400B3EE9F /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		949DD89A1E121321004E1522 /* BookViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		949DD89A1E121321004E1522 /* BookListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListViewModel.swift; sourceTree = "<group>"; };
 		949DD89E1E121588004E1522 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		949DD8A11E1218A9004E1522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		949DD8A31E1248BE004E1522 /* RealmBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmBook.swift; sourceTree = "<group>"; };
 		949DD8A51E124B0B004E1522 /* BookDataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDataCenter.swift; sourceTree = "<group>"; };
+		949DD8A81E13515C004E1522 /* BookDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		D0E791911E07C046002F1EC6 /* DBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E791941E07C046002F1EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0E791961E07C046002F1EC6 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +105,8 @@
 		949DD8991E121302004E1522 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				949DD89A1E121321004E1522 /* BookViewModel.swift */,
+				949DD89A1E121321004E1522 /* BookListViewModel.swift */,
+				949DD8A81E13515C004E1522 /* BookDetailViewModel.swift */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -400,7 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				949DD89B1E121321004E1522 /* BookViewModel.swift in Sources */,
+				949DD89B1E121321004E1522 /* BookListViewModel.swift in Sources */,
 				947E6B941E12088400B3EE9F /* Book.swift in Sources */,
 				947E6B921E1207C900B3EE9F /* BookViewCell.swift in Sources */,
 				949DD89F1E121588004E1522 /* DetailViewController.swift in Sources */,
@@ -408,6 +411,7 @@
 				949DD8A61E124B0B004E1522 /* BookDataCenter.swift in Sources */,
 				D0E791971E07C046002F1EC6 /* ListViewController.swift in Sources */,
 				D0E791951E07C046002F1EC6 /* AppDelegate.swift in Sources */,
+				949DD8A91E13515C004E1522 /* BookDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
