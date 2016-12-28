@@ -19,29 +19,65 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BookViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookViewCell" rowHeight="75" id="kG7-6p-kyq" customClass="BookViewCell" customModule="DBDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HeaderViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderViewCell" rowHeight="55" id="kG7-6p-kyq" userLabel="HeaderViewCell" customClass="HeaderViewCell" customModule="DBDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kG7-6p-kyq" id="Aqv-zW-yO0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Im-of-eiJ">
+                                            <rect key="frame" x="19" y="14" width="86" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Books Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HP1-HS-FBk" userLabel="Count Label">
+                                            <rect key="frame" x="256" y="15.5" width="100" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="Nrb-3G-wFP"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="HP1-HS-FBk" secondAttribute="trailing" constant="11" id="eqI-Ps-fiP"/>
+                                        <constraint firstItem="5Im-of-eiJ" firstAttribute="top" secondItem="Aqv-zW-yO0" secondAttribute="topMargin" constant="6" id="gMc-uH-F48"/>
+                                        <constraint firstItem="HP1-HS-FBk" firstAttribute="centerY" secondItem="5Im-of-eiJ" secondAttribute="centerY" id="ltT-9U-PhL"/>
+                                        <constraint firstItem="5Im-of-eiJ" firstAttribute="leading" secondItem="Aqv-zW-yO0" secondAttribute="leadingMargin" constant="11" id="nHs-1L-Q6z"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.1215686275" green="0.66274509800000003" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="bookCountLabel" destination="HP1-HS-FBk" id="Klt-qY-wAD"/>
+                                    <outlet property="nameLabel" destination="5Im-of-eiJ" id="jam-2H-vH0"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BookViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookViewCell" rowHeight="75" id="GRm-s3-6Jm" customClass="BookViewCell" customModule="DBDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="83" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GRm-s3-6Jm" id="Q6Z-r5-JvS">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Im-of-eiJ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vE3-uO-6Ie">
                                             <rect key="frame" x="19" y="14" width="89" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qW-ZQ-dPR">
-                                            <rect key="frame" x="19" y="45" width="248" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CL-0Z-5EZ">
+                                            <rect key="frame" x="19" y="45" width="217" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HP1-HS-FBk">
-                                            <rect key="frame" x="287" y="45" width="69" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPF-Oa-ALw">
+                                            <rect key="frame" x="256" y="45" width="100" height="18"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="69" id="Nrb-3G-wFP"/>
+                                                <constraint firstAttribute="width" constant="100" id="4DY-Xh-VpJ"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
@@ -49,19 +85,19 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="HP1-HS-FBk" firstAttribute="centerY" secondItem="5qW-ZQ-dPR" secondAttribute="centerY" id="6t9-t0-Zxs"/>
-                                        <constraint firstItem="HP1-HS-FBk" firstAttribute="leading" secondItem="5qW-ZQ-dPR" secondAttribute="trailing" constant="20" id="P2O-qV-Q3V"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="HP1-HS-FBk" secondAttribute="trailing" constant="11" id="eqI-Ps-fiP"/>
-                                        <constraint firstItem="5Im-of-eiJ" firstAttribute="top" secondItem="Aqv-zW-yO0" secondAttribute="topMargin" constant="6" id="gMc-uH-F48"/>
-                                        <constraint firstItem="5Im-of-eiJ" firstAttribute="leading" secondItem="Aqv-zW-yO0" secondAttribute="leadingMargin" constant="11" id="nHs-1L-Q6z"/>
-                                        <constraint firstItem="5qW-ZQ-dPR" firstAttribute="top" secondItem="5Im-of-eiJ" secondAttribute="bottom" constant="10" id="s4D-PA-mlK"/>
-                                        <constraint firstItem="5qW-ZQ-dPR" firstAttribute="leading" secondItem="Aqv-zW-yO0" secondAttribute="leadingMargin" constant="11" id="tXf-Wb-H8L"/>
+                                        <constraint firstItem="vE3-uO-6Ie" firstAttribute="top" secondItem="Q6Z-r5-JvS" secondAttribute="topMargin" constant="6" id="35c-VY-EdT"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="NPF-Oa-ALw" secondAttribute="trailing" constant="11" id="3Kh-0A-X1j"/>
+                                        <constraint firstItem="NPF-Oa-ALw" firstAttribute="leading" secondItem="5CL-0Z-5EZ" secondAttribute="trailing" constant="20" id="8Qh-cm-uas"/>
+                                        <constraint firstItem="NPF-Oa-ALw" firstAttribute="centerY" secondItem="5CL-0Z-5EZ" secondAttribute="centerY" id="A5J-gW-x9n"/>
+                                        <constraint firstItem="5CL-0Z-5EZ" firstAttribute="leading" secondItem="Q6Z-r5-JvS" secondAttribute="leadingMargin" constant="11" id="FPf-wl-Njp"/>
+                                        <constraint firstItem="vE3-uO-6Ie" firstAttribute="leading" secondItem="Q6Z-r5-JvS" secondAttribute="leadingMargin" constant="11" id="Rqj-lc-cMu"/>
+                                        <constraint firstItem="5CL-0Z-5EZ" firstAttribute="top" secondItem="vE3-uO-6Ie" secondAttribute="bottom" constant="10" id="xha-0a-rQg"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="authorLabel" destination="5qW-ZQ-dPR" id="mV5-Jo-wY4"/>
-                                    <outlet property="nameLabel" destination="5Im-of-eiJ" id="hVc-ha-9EQ"/>
-                                    <outlet property="statusLabel" destination="HP1-HS-FBk" id="nsZ-E1-RV5"/>
+                                    <outlet property="authorLabel" destination="5CL-0Z-5EZ" id="EdT-dq-lHJ"/>
+                                    <outlet property="nameLabel" destination="vE3-uO-6Ie" id="wMP-Z0-hlb"/>
+                                    <outlet property="statusLabel" destination="NPF-Oa-ALw" id="c08-pY-H8B"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

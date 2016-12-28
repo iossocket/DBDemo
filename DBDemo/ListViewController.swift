@@ -45,6 +45,16 @@ class ListViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderViewCell") as! HeaderViewCell
+        cell.configCell()
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 55
+    }
+    
     private func booksChangedNotificationHandler() -> ((_ type: NotificationType) -> Void) {
         return { [weak self] type in
             guard let strongSelf = self else { return }
