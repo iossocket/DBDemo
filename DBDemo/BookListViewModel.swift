@@ -10,7 +10,7 @@ import Foundation
 
 struct BookListViewModel {
     
-    let books: Array<Book>
+    var books: Array<Book>
     
     func bookCount() -> Int {
         return books.count

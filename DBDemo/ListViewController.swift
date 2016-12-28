@@ -10,7 +10,7 @@ import UIKit
 
 class ListViewController: UITableViewController {
 
-    let bookDataCenter = BookDataCenter()
+    var bookDataCenter = BookDataCenter()
     var bookViewModel: BookListViewModel!
     
     override func viewDidLoad() {
@@ -18,7 +18,7 @@ class ListViewController: UITableViewController {
     
         title = "My Books"
         
-        let books = bookDataCenter.fetchBooksFromBD()
+        let books = bookDataCenter.fetchBooksFromBD(notificationHandler: booksChangedNotificationHandler())
         bookViewModel = BookListViewModel(books: books)
     }
     
@@ -42,6 +42,24 @@ class ListViewController: UITableViewController {
             detailVC.bookDetailViewModel = bookDetailViewModel
             
             navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
+    
+    private func booksChangedNotificationHandler() -> ((_ type: NotificationType) -> Void) {
+        return { [weak self] type in
+            guard let strongSelf = self else { return }
+            
+            switch type {
+                case .initial(let value):
+                    strongSelf.bookViewModel = BookListViewModel(books: value)
+                    strongSelf.tableView.reloadData()
+                case .modifications(let modifiededIndexes, let value):
+                    strongSelf.bookViewModel = BookListViewModel(books: value)
+                    
+                    strongSelf.tableView.beginUpdates()
+                    strongSelf.tableView.reloadRows(at: modifiededIndexes.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
+                    strongSelf.tableView.endUpdates()
+            }
         }
     }
 }

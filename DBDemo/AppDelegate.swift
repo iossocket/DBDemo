@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Prepare data in DB
-        let bookDataCenter = BookDataCenter()
-        let books = bookDataCenter.fetchBooksFromBD()
+        var bookDataCenter = BookDataCenter()
+        let books = bookDataCenter.fetchBooksFromBD(notificationHandler: nil)
         if books.count == 0 {
             bookDataCenter.saveBooksToDB()
         }
