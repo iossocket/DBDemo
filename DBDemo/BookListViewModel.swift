@@ -10,13 +10,7 @@ import Foundation
 
 struct BookListViewModel {
     
-    let bookDataCenter: BookDataCenter
     let books: Array<Book>
-    
-    init(bookDataCenter: BookDataCenter) {
-        self.bookDataCenter = bookDataCenter
-        self.books = bookDataCenter.fetchBooksFromBD()
-    }
     
     func bookCount() -> Int {
         return books.count

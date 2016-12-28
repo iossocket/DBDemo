@@ -10,12 +10,16 @@ import UIKit
 
 class ListViewController: UITableViewController {
 
-    var bookViewModel: BookListViewModel = BookListViewModel(bookDataCenter: BookDataCenter())
+    let bookDataCenter = BookDataCenter()
+    var bookViewModel: BookListViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         title = "My Books"
+        
+        let books = bookDataCenter.fetchBooksFromBD()
+        bookViewModel = BookListViewModel(books: books)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,11 +35,14 @@ class ListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let book = bookViewModel.bookAtIndex(indexPath.row)
-        let bookDetailViewModel = BookDetailViewModel(bookDataCenter: BookDataCenter(), bookID: book.id)
-        let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        detailVC.bookDetailViewModel = bookDetailViewModel
-        
-        navigationController?.pushViewController(detailVC, animated: true)
+        if let selectedBook = bookDataCenter.fetchBookById(book.id) {
+            let bookDetailViewModel = BookDetailViewModel(book: selectedBook)
+            
+            let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+            detailVC.bookDetailViewModel = bookDetailViewModel
+            
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
     }
 }
 

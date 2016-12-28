@@ -9,21 +9,26 @@
 import Foundation
 
 struct BookDetailViewModel {
-
-    let bookDataCenter: BookDataCenter
-    let bookID: Int
-
-    func fetchBookFromDB() -> (name: String, author: String, status: String) {
-        let fetchedBook = bookDataCenter.fetchBookById(bookID)
-        
-        guard let book = fetchedBook else {
-            return (name: "", author: "", status: "")
-        }
-        
-        return (name: book.name, author: book.author, status: book.displayedStatus)
+    
+    let book: Book
+    
+    func bookID() -> Int {
+        return book.id
     }
     
-    func changeBookStatus(successHandler:@escaping (_ book: Book) -> Void) {
-        bookDataCenter.changeBookStatus(bookID, successHandler: successHandler)
+    func name() -> String {
+        return book.name
     }
+    
+    func author() -> String {
+        return book.author
+    }
+    
+    func status() -> String {
+        return book.displayedStatus
+    }
+    
+//    func changeBookStatus(successHandler:@escaping (_ book: Book) -> Void) {
+//        bookDataCenter.changeBookStatus(bookID, successHandler: successHandler)
+//    }
 }
