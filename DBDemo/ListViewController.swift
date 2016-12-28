@@ -13,7 +13,6 @@ class ListViewController: UITableViewController {
     var bookDataCenter = BookDataCenter()
     var userDataCenter = UserDataCenter()
     var viewModel: BookListViewModel!
-    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +20,7 @@ class ListViewController: UITableViewController {
         title = "My Books"
         
         let books = bookDataCenter.fetchBooksFromBD(notificationHandler: booksChangedNotificationHandler())
-        user = userDataCenter.fetchUser()
+        let user = userDataCenter.fetchUser()
         
         viewModel = BookListViewModel(books: books, user: user)
     }
@@ -66,11 +65,8 @@ class ListViewController: UITableViewController {
             guard let strongSelf = self else { return }
             
             switch type {
-                case .initial(let value):
-                    strongSelf.viewModel = BookListViewModel(books: value, user: strongSelf.user)
-                    strongSelf.tableView.reloadData()
                 case .modifications(let modifiededIndexes, let value):
-                    strongSelf.viewModel = BookListViewModel(books: value, user: strongSelf.user)
+                    strongSelf.viewModel.setBooks(value)
                     
                     strongSelf.tableView.beginUpdates()
                     strongSelf.tableView.reloadRows(at: modifiededIndexes.map({ IndexPath(row: $0, section: 0) }), with: .automatic)

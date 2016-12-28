@@ -11,7 +11,6 @@ import Foundation
 import RealmSwift
 
 enum NotificationType {
-    case initial(results: Array<Book>)
     case modifications(modifidedIndexes: Array<Int>, results: Array<Book>)
 }
 
@@ -32,9 +31,6 @@ struct BookDataCenter {
         
         notificationToken = results.addNotificationBlock { changes in
             switch changes {
-            case .initial(let value):
-                notificationHandler?(.initial(results: mapResults(value)))
-                break
             case .update(let value, _, _, let modifications):
                 if modifications.count != 0 {
                     notificationHandler?(.modifications(modifidedIndexes: modifications, results: mapResults(value)))

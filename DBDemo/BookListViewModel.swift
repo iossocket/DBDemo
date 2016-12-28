@@ -10,8 +10,17 @@ import Foundation
 
 struct BookListViewModel {
     
-    var books: Array<Book>
-    var user: User
+    private var books: Array<Book>
+    private var user: User?
+    
+    init(books: Array<Book>, user: User?) {
+        self.books = books
+        self.user = user
+    }
+    
+    mutating func setBooks(_ newBooks: Array<Book>) {
+        books = newBooks
+    }
     
     func bookCount() -> Int {
         return books.count
@@ -22,7 +31,7 @@ struct BookListViewModel {
     }
     
     func userInfo() -> (name: String, count: String) {
-        return (name: user.name, count: "\(books.count) 本")
+        return (name: user?.name ?? "", count: "\(books.count) 本")
     }
     
 }
