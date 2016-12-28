@@ -11,7 +11,9 @@ import UIKit
 class ListViewController: UITableViewController {
 
     var bookDataCenter = BookDataCenter()
-    var bookViewModel: BookListViewModel!
+    var userDataCenter = UserDataCenter()
+    var viewModel: BookListViewModel!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,22 +21,26 @@ class ListViewController: UITableViewController {
         title = "My Books"
         
         let books = bookDataCenter.fetchBooksFromBD(notificationHandler: booksChangedNotificationHandler())
-        bookViewModel = BookListViewModel(books: books)
+        user = userDataCenter.fetchUser()
+        
+        viewModel = BookListViewModel(books: books, user: user)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookViewModel.bookCount()
+        return viewModel.bookCount()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookViewCell", for: indexPath) as! BookViewCell
-        let book = bookViewModel.bookAtIndex(indexPath.row)
+        let book = viewModel.bookAtIndex(indexPath.row)
         cell.configCell(book)
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let book = bookViewModel.bookAtIndex(indexPath.row)
+        let book = viewModel.bookAtIndex(indexPath.row)
+        
         if let selectedBook = bookDataCenter.fetchBookById(book.id) {
             let bookDetailViewModel = BookDetailViewModel(book: selectedBook)
             
@@ -47,7 +53,7 @@ class ListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderViewCell") as! HeaderViewCell
-        cell.configCell()
+        cell.configCell(userInfo: viewModel.userInfo())
         return cell
     }
     
@@ -61,10 +67,10 @@ class ListViewController: UITableViewController {
             
             switch type {
                 case .initial(let value):
-                    strongSelf.bookViewModel = BookListViewModel(books: value)
+                    strongSelf.viewModel = BookListViewModel(books: value, user: strongSelf.user)
                     strongSelf.tableView.reloadData()
                 case .modifications(let modifiededIndexes, let value):
-                    strongSelf.bookViewModel = BookListViewModel(books: value)
+                    strongSelf.viewModel = BookListViewModel(books: value, user: strongSelf.user)
                     
                     strongSelf.tableView.beginUpdates()
                     strongSelf.tableView.reloadRows(at: modifiededIndexes.map({ IndexPath(row: $0, section: 0) }), with: .automatic)

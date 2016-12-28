@@ -11,6 +11,7 @@ import Foundation
 struct BookListViewModel {
     
     var books: Array<Book>
+    var user: User
     
     func bookCount() -> Int {
         return books.count
@@ -18,6 +19,10 @@ struct BookListViewModel {
     
     func bookAtIndex(_ index: Int) -> Book {
         return books[index]
+    }
+    
+    func userInfo() -> (name: String, count: String) {
+        return (name: user.name, count: "\(books.count) 本")
     }
     
 }

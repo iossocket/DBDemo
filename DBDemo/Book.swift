@@ -6,7 +6,7 @@
 //  Copyright © 2016 ThoughtWorks. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 enum BookStatus: String {
     case available = "Available"

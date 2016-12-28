@@ -13,8 +13,8 @@ class HeaderViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bookCountLabel: UILabel!
     
-    func configCell() {
-        nameLabel.text = "郑佳宁"
-        bookCountLabel.text = "10 本"
+    func configCell(userInfo: (name: String, count: String)) {
+        nameLabel.text = userInfo.name
+        bookCountLabel.text = userInfo.count
     }
 }

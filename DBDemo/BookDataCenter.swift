@@ -17,7 +17,6 @@ enum NotificationType {
 
 struct BookDataCenter {
 
-    var realm: Realm!
     var notificationToken: NotificationToken!
 
     mutating func fetchBooksFromBD(notificationHandler: ((_ type: NotificationType) -> Void)?) -> Array<Book> {
