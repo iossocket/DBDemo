@@ -14,7 +14,7 @@ enum NotificationType {
     case modifications(modifidedIndexes: Array<Int>, results: Array<Book>)
 }
 
-struct BookDataCenter {
+struct BookRealmDataCenter: BookDataCenter {
 
     var notificationToken: NotificationToken!
 
@@ -53,6 +53,13 @@ struct BookDataCenter {
         return bookModelFromRealmBook(bookInDB)
     }
     
+    func saveBooksToDB() {
+        for index in 1...5 {
+            let realmBook = RealmBook(value: ["id": index, "name": "book-\(index)", "author": "author-\(index)", "status": false])
+            saveBook(realmBook)
+        }
+    }
+    
     func changeBookStatus(_ id: Int, successHandler: @escaping (_ book: Book) -> Void) {
         DispatchQueue.global().async {
             let realm = try! Realm()
@@ -73,14 +80,7 @@ struct BookDataCenter {
         return Book(id: book.id, name: book.name, author: book.author, status: book.status)
     }
     
-    func saveBooksToDB() {
-        for index in 1...5 {
-            let realmBook = RealmBook(value: ["id": index, "name": "book-\(index)", "author": "author-\(index)", "status": false])
-            saveBook(realmBook)
-        }
-    }
-    
-    func saveBook(_ book: RealmBook) {
+    private func saveBook(_ book: RealmBook) {
         DispatchQueue.global().async {
             let realm = try! Realm()
             try! realm.write {

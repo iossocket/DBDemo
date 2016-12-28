@@ -10,8 +10,8 @@ import UIKit
 
 class ListViewController: UITableViewController {
 
-    var bookDataCenter = BookDataCenter()
-    var userDataCenter = UserDataCenter()
+    var bookDataCenter: BookDataCenter = BookRealmDataCenter()
+    var userDataCenter: UserDataCenter = UserRealmDataCenter()
     var viewModel: BookListViewModel!
     
     override func viewDidLoad() {

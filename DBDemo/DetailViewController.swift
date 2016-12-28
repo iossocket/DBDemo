@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
-    let bookDataCenter = BookDataCenter()
+    let bookDataCenter: BookDataCenter = BookRealmDataCenter()
     var bookDetailViewModel: BookDetailViewModel!
 
     override func viewDidLoad() {

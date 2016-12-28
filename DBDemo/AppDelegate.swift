@@ -16,13 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Prepare data in DB (temp)
-        var bookDataCenter = BookDataCenter()
+        var bookDataCenter: BookDataCenter = BookRealmDataCenter()
         let books = bookDataCenter.fetchBooksFromBD(notificationHandler: nil)
         if books.count == 0 {
             bookDataCenter.saveBooksToDB()
         }
         
-        let userDataCenter = UserDataCenter()
+        let userDataCenter: UserDataCenter = UserRealmDataCenter()
         let user = userDataCenter.fetchUser()
         if user == nil {
             userDataCenter.saveUserToDB()
