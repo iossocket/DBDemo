@@ -12,17 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let bookDataService = RealmBookDataService(transform: RealmBookToBookTransform())
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Prepare data in DB (temp)
-        var bookDataCenter: BookDataCenter = BookRealmDataCenter()
-        let books = bookDataCenter.fetchBooksFromBD(notificationHandler: nil)
+      
+        let books = bookDataService.fetchBooksFromBD()
         if books.count == 0 {
-            bookDataCenter.saveBooksToDB()
+            bookDataService.saveBooksToDB()
         }
         
-        let userDataCenter: UserDataCenter = UserRealmDataCenter()
+        let userDataCenter: UserDataService = RealmUserDataService()
         let user = userDataCenter.fetchUser()
         if user == nil {
             userDataCenter.saveUserToDB()

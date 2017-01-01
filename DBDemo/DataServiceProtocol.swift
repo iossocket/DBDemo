@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol UserDataCenter {
+protocol UserDataService {
     func fetchUser() -> User?
     func saveUserToDB()
 }
 
-protocol BookDataCenter {
-    mutating func fetchBooksFromBD(notificationHandler: ((_ type: NotificationType) -> Void)?) -> [Book]
+protocol BookDataService {
+    func fetchBooksFromBD() -> [Book]
     func fetchBookById(_ id: Int) -> Book?
     func changeBookStatus(_ id: Int, successHandler: @escaping (_ book: Book) -> Void)
     func saveBooksToDB()

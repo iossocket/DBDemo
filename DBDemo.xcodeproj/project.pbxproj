@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		742B6D3F1E195A0200D33097 /* RealmBookNotificaitonCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742B6D3E1E195A0200D33097 /* RealmBookNotificaitonCenter.swift */; };
+		742B6D421E195A4000D33097 /* RealmBookToBookTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742B6D411E195A4000D33097 /* RealmBookToBookTransform.swift */; };
+		742B6D441E195AEC00D33097 /* DataNotificationCenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742B6D431E195AEC00D33097 /* DataNotificationCenterProtocol.swift */; };
 		929348F142CD73AFD7A60834 /* Pods_DBDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CD859CAF85F9D2DB717D7B /* Pods_DBDemo.framework */; };
 		947E6B921E1207C900B3EE9F /* BookViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E6B911E1207C900B3EE9F /* BookViewCell.swift */; };
 		947E6B941E12088400B3EE9F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E6B931E12088400B3EE9F /* Book.swift */; };
@@ -14,13 +17,13 @@
 		949DD89F1E121588004E1522 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD89E1E121588004E1522 /* DetailViewController.swift */; };
 		949DD8A21E1218A9004E1522 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949DD8A01E1218A9004E1522 /* Main.storyboard */; };
 		949DD8A41E1248BE004E1522 /* RealmBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8A31E1248BE004E1522 /* RealmBook.swift */; };
-		949DD8A61E124B0B004E1522 /* BookRealmDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8A51E124B0B004E1522 /* BookRealmDataCenter.swift */; };
+		949DD8A61E124B0B004E1522 /* RealmBookDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8A51E124B0B004E1522 /* RealmBookDataService.swift */; };
 		949DD8A91E13515C004E1522 /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8A81E13515C004E1522 /* BookDetailViewModel.swift */; };
 		949DD8AB1E13730C004E1522 /* HeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8AA1E13730C004E1522 /* HeaderViewCell.swift */; };
 		949DD8AD1E137890004E1522 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8AC1E137890004E1522 /* RealmUser.swift */; };
 		949DD8AF1E13789D004E1522 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8AE1E13789D004E1522 /* User.swift */; };
-		949DD8B11E137916004E1522 /* DataCenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8B01E137916004E1522 /* DataCenterProtocol.swift */; };
-		949DD8BA1E13AA92004E1522 /* UserRealmDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8B91E13AA92004E1522 /* UserRealmDataCenter.swift */; };
+		949DD8B11E137916004E1522 /* DataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8B01E137916004E1522 /* DataServiceProtocol.swift */; };
+		949DD8BA1E13AA92004E1522 /* RealmUserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DD8B91E13AA92004E1522 /* RealmUserDataService.swift */; };
 		D0E791951E07C046002F1EC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E791941E07C046002F1EC6 /* AppDelegate.swift */; };
 		D0E791971E07C046002F1EC6 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E791961E07C046002F1EC6 /* ListViewController.swift */; };
 		D0E7919C1E07C046002F1EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0E7919B1E07C046002F1EC6 /* Assets.xcassets */; };
@@ -48,6 +51,9 @@
 
 /* Begin PBXFileReference section */
 		59027F87778E5B6AE294057D /* Pods-DBDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DBDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DBDemo/Pods-DBDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		742B6D3E1E195A0200D33097 /* RealmBookNotificaitonCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmBookNotificaitonCenter.swift; sourceTree = "<group>"; };
+		742B6D411E195A4000D33097 /* RealmBookToBookTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmBookToBookTransform.swift; sourceTree = "<group>"; };
+		742B6D431E195AEC00D33097 /* DataNotificationCenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataNotificationCenterProtocol.swift; sourceTree = "<group>"; };
 		89CD859CAF85F9D2DB717D7B /* Pods_DBDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DBDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		947E6B911E1207C900B3EE9F /* BookViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewCell.swift; sourceTree = "<group>"; };
 		947E6B931E12088400B3EE9F /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -55,13 +61,13 @@
 		949DD89E1E121588004E1522 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		949DD8A11E1218A9004E1522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		949DD8A31E1248BE004E1522 /* RealmBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmBook.swift; sourceTree = "<group>"; };
-		949DD8A51E124B0B004E1522 /* BookRealmDataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookRealmDataCenter.swift; sourceTree = "<group>"; };
+		949DD8A51E124B0B004E1522 /* RealmBookDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmBookDataService.swift; sourceTree = "<group>"; };
 		949DD8A81E13515C004E1522 /* BookDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		949DD8AA1E13730C004E1522 /* HeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewCell.swift; sourceTree = "<group>"; };
 		949DD8AC1E137890004E1522 /* RealmUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		949DD8AE1E13789D004E1522 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		949DD8B01E137916004E1522 /* DataCenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCenterProtocol.swift; sourceTree = "<group>"; };
-		949DD8B91E13AA92004E1522 /* UserRealmDataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRealmDataCenter.swift; sourceTree = "<group>"; };
+		949DD8B01E137916004E1522 /* DataServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServiceProtocol.swift; sourceTree = "<group>"; };
+		949DD8B91E13AA92004E1522 /* RealmUserDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmUserDataService.swift; sourceTree = "<group>"; };
 		D0E791911E07C046002F1EC6 /* DBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E791941E07C046002F1EC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0E791961E07C046002F1EC6 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +118,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		742B6D401E195A2D00D33097 /* Transform */ = {
+			isa = PBXGroup;
+			children = (
+				742B6D411E195A4000D33097 /* RealmBookToBookTransform.swift */,
+			);
+			name = Transform;
+			sourceTree = "<group>";
+		};
 		949DD8991E121302004E1522 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,20 +153,23 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		949DD8A71E125023004E1522 /* Data Center */ = {
+		949DD8A71E125023004E1522 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				742B6D401E195A2D00D33097 /* Transform */,
 				949DD8BB1E13ADA3004E1522 /* Realm */,
-				949DD8B01E137916004E1522 /* DataCenterProtocol.swift */,
+				949DD8B01E137916004E1522 /* DataServiceProtocol.swift */,
+				742B6D431E195AEC00D33097 /* DataNotificationCenterProtocol.swift */,
 			);
-			name = "Data Center";
+			name = Data;
 			sourceTree = "<group>";
 		};
 		949DD8BB1E13ADA3004E1522 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				949DD8A51E124B0B004E1522 /* BookRealmDataCenter.swift */,
-				949DD8B91E13AA92004E1522 /* UserRealmDataCenter.swift */,
+				949DD8A51E124B0B004E1522 /* RealmBookDataService.swift */,
+				949DD8B91E13AA92004E1522 /* RealmUserDataService.swift */,
+				742B6D3E1E195A0200D33097 /* RealmBookNotificaitonCenter.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -215,7 +232,7 @@
 				D0E791941E07C046002F1EC6 /* AppDelegate.swift */,
 				949DD89D1E121573004E1522 /* Controller */,
 				949DD89C1E121555004E1522 /* View */,
-				949DD8A71E125023004E1522 /* Data Center */,
+				949DD8A71E125023004E1522 /* Data */,
 				949DD8991E121302004E1522 /* View Model */,
 				D0C46A571E113B6F00ECF795 /* Model */,
 				D0C46A561E113B6200ECF795 /* Config */,
@@ -424,7 +441,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -435,19 +452,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				949DD89B1E121321004E1522 /* BookListViewModel.swift in Sources */,
-				949DD8BA1E13AA92004E1522 /* UserRealmDataCenter.swift in Sources */,
+				949DD8BA1E13AA92004E1522 /* RealmUserDataService.swift in Sources */,
 				947E6B941E12088400B3EE9F /* Book.swift in Sources */,
 				947E6B921E1207C900B3EE9F /* BookViewCell.swift in Sources */,
 				949DD89F1E121588004E1522 /* DetailViewController.swift in Sources */,
 				949DD8A41E1248BE004E1522 /* RealmBook.swift in Sources */,
-				949DD8A61E124B0B004E1522 /* BookRealmDataCenter.swift in Sources */,
+				949DD8A61E124B0B004E1522 /* RealmBookDataService.swift in Sources */,
 				949DD8AD1E137890004E1522 /* RealmUser.swift in Sources */,
 				D0E791971E07C046002F1EC6 /* ListViewController.swift in Sources */,
 				949DD8AF1E13789D004E1522 /* User.swift in Sources */,
 				D0E791951E07C046002F1EC6 /* AppDelegate.swift in Sources */,
+				742B6D3F1E195A0200D33097 /* RealmBookNotificaitonCenter.swift in Sources */,
+				742B6D441E195AEC00D33097 /* DataNotificationCenterProtocol.swift in Sources */,
 				949DD8A91E13515C004E1522 /* BookDetailViewModel.swift in Sources */,
 				949DD8AB1E13730C004E1522 /* HeaderViewCell.swift in Sources */,
-				949DD8B11E137916004E1522 /* DataCenterProtocol.swift in Sources */,
+				949DD8B11E137916004E1522 /* DataServiceProtocol.swift in Sources */,
+				742B6D421E195A4000D33097 /* RealmBookToBookTransform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

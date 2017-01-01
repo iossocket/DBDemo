@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-struct UserRealmDataCenter: UserDataCenter {
+struct RealmUserDataService: UserDataService {
     
     func fetchUser() -> User? {
         let realm = try! Realm()

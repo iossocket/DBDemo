@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
-    let bookDataCenter: BookDataCenter = BookRealmDataCenter()
+    let bookDataService: BookDataService = RealmBookDataService(transform: RealmBookToBookTransform())
     var bookDetailViewModel: BookDetailViewModel!
 
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func changeStatus(_ sender: Any) {
-        bookDataCenter.changeBookStatus(bookDetailViewModel.bookID()) { [weak self] book in
+        bookDataService.changeBookStatus(bookDetailViewModel.bookID()) { [weak self] book in
             if let strongSelf = self {
                 strongSelf.statusLabel.text = book.displayedStatus
             }
