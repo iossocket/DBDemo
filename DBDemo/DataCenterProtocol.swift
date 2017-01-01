@@ -14,7 +14,7 @@ protocol UserDataCenter {
 }
 
 protocol BookDataCenter {
-    mutating func fetchBooksFromBD(notificationHandler: ((_ type: NotificationType) -> Void)?) -> Array<Book>
+    mutating func fetchBooksFromBD(notificationHandler: ((_ type: NotificationType) -> Void)?) -> [Book]
     func fetchBookById(_ id: Int) -> Book?
     func changeBookStatus(_ id: Int, successHandler: @escaping (_ book: Book) -> Void)
     func saveBooksToDB()
