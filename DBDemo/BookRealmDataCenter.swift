@@ -11,16 +11,16 @@ import Foundation
 import RealmSwift
 
 enum NotificationType {
-    case modifications(modifidedIndexes: Array<Int>, results: Array<Book>)
+    case modifications(modifidedIndexes: [Int], results: [Book])
 }
 
 struct BookRealmDataCenter: BookDataCenter {
 
     var notificationToken: NotificationToken!
 
-    mutating func fetchBooksFromBD(notificationHandler: ((_ type: NotificationType) -> Void)?) -> Array<Book> {
+    mutating func fetchBooksFromBD(notificationHandler: ((_ type: NotificationType) -> Void)?) -> [Book] {
         
-        func mapResults(_ results: Results<RealmBook>) -> Array<Book> {
+        func mapResults(_ results: Results<RealmBook>) -> [Book] {
             return Array(results).map {
                 Book(id: $0.id, name: $0.name, author: $0.author, status: $0.status)
             }

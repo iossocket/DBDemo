@@ -10,15 +10,15 @@ import Foundation
 
 struct BookListViewModel {
     
-    private var books: Array<Book>
+    private var books: [Book]
     private var user: User?
     
-    init(books: Array<Book>, user: User?) {
+    init(books: [Book], user: User?) {
         self.books = books
         self.user = user
     }
     
-    mutating func setBooks(_ newBooks: Array<Book>) {
+    mutating func setBooks(_ newBooks: [Book]) {
         books = newBooks
     }
     
