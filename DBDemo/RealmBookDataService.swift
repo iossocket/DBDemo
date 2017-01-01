@@ -10,38 +10,17 @@
 import Foundation
 import RealmSwift
 
-enum NotificationType {
-    case modifications(modifidedIndexes: [Int], results: [Book])
-}
+struct RealmBookDataService: BookDataService {
+    let transform: RealmBookToBookTransform
+    
+    init(transform: RealmBookToBookTransform) {
+        self.transform = transform
+    }
 
-struct BookRealmDataCenter: BookDataCenter {
-
-    var notificationToken: NotificationToken!
-
-    mutating func fetchBooksFromBD(notificationHandler: ((_ type: NotificationType) -> Void)?) -> [Book] {
-        
-        func mapResults(_ results: Results<RealmBook>) -> [Book] {
-            return Array(results).map {
-                Book(id: $0.id, name: $0.name, author: $0.author, status: $0.status)
-            }
-        }
-        
+    func fetchBooksFromBD() -> [Book] {
         let realm = try! Realm()
-        let results = realm.objects(RealmBook.self)
-        
-        notificationToken = results.addNotificationBlock { changes in
-            switch changes {
-            case .update(let value, _, _, let modifications):
-                if modifications.count != 0 {
-                    notificationHandler?(.modifications(modifidedIndexes: modifications, results: mapResults(value)))
-                }
-                break
-            default:
-                break
-            }
-        }
-        
-        return mapResults(results)
+        let results = realm.objects(RealmBook.self)        
+        return transform.mapResults(results)
     }
     
     func fetchBookById(_ id: Int) -> Book? {

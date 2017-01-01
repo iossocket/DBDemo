@@ -8,21 +8,28 @@
 
 import UIKit
 
+extension UITableViewController {
+    func reloadSectionZero(modifiededIndexes: [Int]) {
+        tableView.beginUpdates()
+        tableView.reloadRows(at: modifiededIndexes.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
+        tableView.endUpdates()
+    }
+}
+
 class ListViewController: UITableViewController {
 
-    var bookDataCenter: BookDataCenter = BookRealmDataCenter()
-    var userDataCenter: UserDataCenter = UserRealmDataCenter()
+    let bookDataService: BookDataService = RealmBookDataService(transform: RealmBookToBookTransform())
+    let userDataService: UserDataService = RealmUserDataService()
+    let bookNotificationCenter: BookNotificationCenter = RealmBookNotificaitonCenter(transform: RealmBookToBookTransform())
+    
     var viewModel: BookListViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         title = "My Books"
-        
-        let books = bookDataCenter.fetchBooksFromBD(notificationHandler: booksChangedNotificationHandler())
-        let user = userDataCenter.fetchUser()
-        
-        viewModel = BookListViewModel(books: books, user: user)
+        showBooks()
+        refreshWhenDataChanged()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,7 +47,7 @@ class ListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let book = viewModel.bookAtIndex(indexPath.row)
         
-        if let selectedBook = bookDataCenter.fetchBookById(book.id) {
+        if let selectedBook = bookDataService.fetchBookById(book.id) {
             let bookDetailViewModel = BookDetailViewModel(book: selectedBook)
             
             let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
@@ -60,19 +67,30 @@ class ListViewController: UITableViewController {
         return 55
     }
     
-    private func booksChangedNotificationHandler() -> ((_ type: NotificationType) -> Void) {
-        return { [weak self] type in
+    // MARK: private
+    
+    func showBooks() {
+        let books = bookDataService.fetchBooksFromBD()
+        let user = userDataService.fetchUser()
+        viewModel = BookListViewModel(books: books, user: user)
+        tableView.reloadData()
+    }
+    
+    func refreshWhenDataChanged() {
+        let user = userDataService.fetchUser()
+        bookNotificationCenter.register(deletionHandler: { [weak self] books, indexes in
             guard let strongSelf = self else { return }
-            
-            switch type {
-                case .modifications(let modifiededIndexes, let value):
-                    strongSelf.viewModel.setBooks(value)
-                    
-                    strongSelf.tableView.beginUpdates()
-                    strongSelf.tableView.reloadRows(at: modifiededIndexes.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
-                    strongSelf.tableView.endUpdates()
-            }
-        }
+            strongSelf.viewModel = BookListViewModel(books: books, user: user)
+            strongSelf.reloadSectionZero(modifiededIndexes: indexes)
+            }, insertionHandler: { [weak self] books, indexes in
+                guard let strongSelf = self else { return }
+                strongSelf.viewModel = BookListViewModel(books: books, user: user)
+                strongSelf.reloadSectionZero(modifiededIndexes: indexes)
+            }, modificationHandler: { [weak self] books, indexes in
+                guard let strongSelf = self else { return }
+                strongSelf.viewModel = BookListViewModel(books: books, user: user)
+                strongSelf.reloadSectionZero(modifiededIndexes: indexes)
+        })
     }
 }
 
